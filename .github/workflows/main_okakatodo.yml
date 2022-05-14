@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://acr20220514alterbooth1.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_2b47140b33b64df584a12a96e1fe87e5 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_ce8515ae0f1e4e2baa0c9234c50415fc }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_c3e49fbb000a4a24bd153f2cd739c358 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_5482846c680c40a6844aa2e38e453231 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: acr20220514alterbooth1.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2b47140b33b64df584a12a96e1fe87e5 }}/hello-world-okaka2:${{ github.sha }}
+        tags: acr20220514alterbooth1.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_c3e49fbb000a4a24bd153f2cd739c358 }}/hello-world-okaka2:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'okakatodo'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_c3154f6f921c4b33beb8e171145a6057 }}
-        images: 'acr20220514alterbooth1.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2b47140b33b64df584a12a96e1fe87e5 }}/hello-world-okaka2:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_00b0038a7d73443393299edbb4688421 }}
+        images: 'acr20220514alterbooth1.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_c3e49fbb000a4a24bd153f2cd739c358 }}/hello-world-okaka2:${{ github.sha }}'
